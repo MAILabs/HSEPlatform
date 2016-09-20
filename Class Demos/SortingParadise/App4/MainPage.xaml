@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="App4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" 
+                   Text="Hello, world!" 
+                   Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Click="Sort_Click">Sort</Button>
+            <Button Click="Button_Click">Randomize Current</Button>
+            <Button Click="Button_Click_1">Randimize All</Button>
+        </StackPanel>
+        <ListBox x:Name="List" ItemsSource="{Binding Numbers, Mode=OneWay}" Grid.Row="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="100" Text="{Binding Value}" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                        <Rectangle Fill="{Binding Color}" Height="15" Width="{Binding Value}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
